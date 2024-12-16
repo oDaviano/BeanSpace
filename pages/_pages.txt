@@ -1,0 +1,47 @@
+서브페이지 업로드 폴더입니다.
+
+index.html 복사해서 개인별 담당 페이지 제작(ex tmp_peg.html)
+
+**2024-11-04
+
+1.폰트어썸 아이콘 cdn 연결
+	폰트어썸에서 제공하는 아이콘 사용.
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+2.모든 페이지에서 스크립트 및 css 연결 안정성을 위해 모두 절대 경로로 변경.
+
+	이전 :
+	<link type="text/css" rel="stylesheet" href="assets/css/font.css">
+	변경:
+	<link type="text/css" rel="stylesheet" href="/assets/css/font.css">
+
+3. ajax 연결
+	헤더, 푸터, 어사이드 pages/common.html 에 작성
+	현재 common.js 에서 setCommon() 함수로 연결.(ajax 사용)
+
+아래 마크업은 참고용.
+<main>
+	<section>
+		<!-- 영역샘플-->
+		<article>
+			<div class="content">
+				<div class="example-box">
+					<div class="box">박스 가로정렬</div>
+				</div>
+				<div class="example-box">
+					<div class="box">박스 가로정렬(모바일일때는 세로정렬)</div>
+					<div class="box">박스 가로정렬(모바일일때는 세로정렬)</div>
+				</div>
+				<div class="example-box column">
+					<div class="box">박스 세로정렬</div>
+					<div class="box">박스 세로정렬</div>
+					<div class="box">박스 세로정렬</div>
+				</div>
+			</div>
+		</article>
+		...
+	</section>
+</main>
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ

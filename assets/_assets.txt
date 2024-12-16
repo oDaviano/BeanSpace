@@ -1,0 +1,27 @@
+css / fonts / images 업로드용 통합 폴더.
+
+
+history
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+**2024-12-16
+-css-
+- common.css : 태그 리셋 및 공통 css 정의.
+- font.css : 폰트서식 정의.
+
+이하 개별 css 파일(깃 충돌 방지)
+현상황 common.css , mobile.css 에 각각 임포트 해둔 상태로 페이지 내부 추가 link rel 불필요.
+ex: tmp_peg.css
+
+- 추후 common.css 또는 custom.css로 통합.
+
+
+-fonts-
+추가할 폰트 생기면 해당 폴더에 저장
+
+-images-
+
+assets/images/common 공통으로 사용되는 아이콘 및 배너 이미지 등
+
+공통이 아닌 이미지 추가시 폴더 추가.
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
