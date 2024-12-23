@@ -23,7 +23,7 @@ index.html 복사해서 개인별 담당 페이지 제작(ex tmp_peg.html)
 <main>
 	<section>
 		<!-- 영역샘플-->
-		<article>
+		<article>	
 			<div class="content">
 				<div class="example-box">
 					<div class="box">박스 가로정렬</div>
