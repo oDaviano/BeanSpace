@@ -1,1 +1,142 @@
-@charset "utf-8";
+/* 전역 스타일 */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* 전체 Header 스타일 */
+.header {
+    background-color: #007bff;
+    padding: 16px;
+    display: flex;
+    align-items: center; /* 요소 수직 정렬 */
+    position: relative; /* 회원 정보 텍스트를 중앙 배치하기 위한 기준 설정 */
+    color: white;
+}
+
+.car-icon img {
+    width: 80px; /* 이미지 크기 */
+    height: auto; /* 비율 유지 */
+    margin-left: 13px; /* 좌측 여백 */
+    cursor: pointer; /* 마우스를 올리면 포인터 표시 */
+}
+
+/* 회원 정보 텍스트 중앙 정렬 */
+.header-title {
+    position: absolute; /* 부모의 중앙 기준으로 위치 지정 */
+    left: 50%; /* 왼쪽 기준으로 50% 이동 */
+    transform: translateX(-50%); /* 정중앙에 위치하도록 조정 */
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0;
+}.header-title2 {
+    position: absolute; /* 부모의 중앙 기준으로 위치 지정 */
+    left: 53%; /* 왼쪽 기준으로 50% 이동 */
+    transform: translateX(-50%); /* 정중앙에 위치하도록 조정 */
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* 사이드바 열기 버튼 */
+.menu-icon {
+    font-size: 30px;
+    margin-right: 10px; /* 우측 여백 */
+    cursor: pointer;
+    margin-left: auto; /* 오른쪽 끝으로 밀기 */
+}
+
+
+
+.main-content {
+    padding: 10px;
+}
+
+.info-box {
+    padding: 30px; /* 내부 여백 */
+    width: 100%; /* 박스 너비를 화면 너비의 80%로 설정 */
+    max-width: 1200px; /* 최대 너비를 설정하여 너무 넓어지지 않도록 제한 */
+    margin: 0 auto; /* 가운데 정렬 */
+    background-color: #f4f4f4; /* 선택 사항: 배경색 추가 */
+    border-radius: 8px; /* 선택 사항: 모서리를 둥글게 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 선택 사항: 그림자 추가 */
+}
+
+.info-item {
+    margin-bottom: 55px; /* 항목 간의 간격 */
+    font-size: 20px; /* 글자 크기 */
+}
+
+.info-item2 {
+    font-size: 20px; /* 적립금 항목의 글자 크기 */
+    font-weight: bold; /* 굵게 설정 */
+}
+
+
+/* 추가된 스타일 */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.no-data {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
+.search-input {
+    width: 100%; /* 입력 필드가 부모 컨테이너의 전체 너비를 차지하도록 설정 */
+    padding: 12px; /* 입력 필드 내부에 여백 추가 */
+    margin-bottom: 16px; /* 입력 필드 아래에 여백 추가 */
+    border: 1px solid #ddd; /* 연한 회색 테두리 */
+    border-radius: 4px; /* 둥근 모서리 */
+    font-size: 16px; /* 글자 크기 설정 */
+    color: #333; /* 글자 색상 설정 */
+    background-color: #fff; /* 배경색 설정 */
+    box-shadow: 0 0 0 2px rgba(221, 221, 221, 1); /* 외곽선 추가 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 포커스 시 효과 부드럽게 전환 */
+}
+
+.search-input:focus {
+    border-color: #007bff; /* 포커스 시 테두리 색상을 파란색으로 변경 */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* 포커스 시 외곽선도 강조 */
+    outline: none; /* 기본 외곽선 제거 */
+}
