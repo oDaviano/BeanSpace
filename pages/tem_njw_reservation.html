@@ -24,8 +24,8 @@
   <!-- <link type="image/png" rel="shortcut icon" href=""> -->
 
   <link type="text/css" rel="stylesheet" href="/assets/css/font.css">
-  <link type="text/css" rel="stylesheet" href="/assets/css/common.css">
   
+  <link type="text/css" rel="stylesheet" href="/assets/css/tmp_njw.css">
   <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.min.css">
   <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.theme.min.css">
   <link type="text/css" rel="stylesheet" href="/lib/swiper-bundle.min.css">
@@ -48,7 +48,6 @@
 			<!-- <section class="header-pc2 load">.load: setCommon 함수로 AJAX 로드</section> 추가 작업용 보류-->
 			<section class="header-mob load"><!-- .load: setCommon 함수로 AJAX 로드 --></section>
 		</header>
-
         <header class="header">
             <div class="car-icon">
                 <a href="#" id="carIconLink">
@@ -56,10 +55,12 @@
                 </a>
             </div>
             <h1 class="header-title2">예약 내역 조회</h1>
-            <div class="menu-icon" id="menuIcon">☰</div>
+            <div id="button_menu" class="menu-icon">         
+                <img src = /assets/images/List.png alt="menu icon"> 
         </header>
     </div>
-       
+</div>
+
             <body>
                 <div class="container">
                    
@@ -96,8 +97,36 @@
                             </tr> -->
                         </tbody>
                     </table>
+                   
                 </div>
-             
+                <aside>
+                    <section class="sidebar">
+                        <article class="sidebar_title">
+                            <div class="ux-title">
+                                <div class="account_name">
+                                    <img src="/assets/images/Account.png" width="70" height="70">
+                                    <div>OOO님</div>
+                                </div>
+                                <div class="sideclose">
+                                    <button type="button"id="button" class="ux-button icon-only button-menu button-close" tabindex="0">X</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="main">
+                                <div class="menu-list">
+                                    <ul>
+                                        <li><a href="#" class="ux-link">회원 정보</a></li>
+                                        <li><a href="#" class="ux-link">예약 내역 조회</a></li>
+                                        <li><a href="#" class="ux-link">개인 정보 수정</a></li>
+                                        <li><a href="#" class="ux-link">로그아웃</a></li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </section>
+                    </aside>
+                </div>
+                </div>
                 <script>
                     // 검색 기능
                     document.getElementById('searchInput').addEventListener('input', function() {
@@ -117,6 +146,17 @@
                             }
                         });
                     });
+                    document.addEventListener('DOMContentLoaded', function () {
+                            // 메뉴 열기
+                            document.getElementById('button_menu').addEventListener('click', function () {
+                                document.querySelector('aside').classList.add('active');
+                            });
+                
+                            // 메뉴 닫기
+                            document.getElementById('closeMenu').addEventListener('click', function () {
+                                document.querySelector('aside').classList.remove('active');
+                            });
+                        });
                 </script>
             </body>
             
