@@ -8,6 +8,9 @@ html, body {
     overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
+header{
+    flex-direction: row;
+}
 /* 전체 Header 스타일 */
 .header {
     background-color: #007bff;
@@ -48,8 +51,8 @@ html, body {
 /* 사이드바 열기 버튼 */
 .menu-icon {
     font-size: 1px;
-    margin-right: 10px; /* 우측 여백 */
-    margin-left: auto; /* 오른쪽 끝으로 밀기 */
+    /* margin-right: 10px; /* 우측 여백 */
+    /* margin-left: auto; 오른쪽 끝으로 밀기 */ 
     cursor: pointer;
 }
 
@@ -66,6 +69,7 @@ html, body {
     height: calc(100% - 60px); /* 헤더 제외 화면 높이 */
     box-sizing: border-box;
     overflow-y: auto; /* 세로 스크롤 가능 */
+    justify-content: start;
 }
 
 .info-box {
@@ -92,7 +96,7 @@ html, body {
 /* 추가된 스타일 */
 .container {
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 20px;
     padding: 20px;
     background: #ffffff;
     box-sizing: border-box;
