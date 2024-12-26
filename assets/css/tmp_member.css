@@ -25,6 +25,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    position: relative;
 }
 
 .member_own .form-group input {
@@ -51,4 +52,24 @@
 
 .signup-btn {
     margin-top: 20px;
+}
+
+.signup-btn {
+    background-color: #007bff; /* 기본 버튼 색상 설정 */
+    color: #fff; /* 기본 버튼 텍스트 색상 설정 */
+}
+/* 추가: 비밀번호 확인 메시지 스타일 */
+.error-message {
+    color: red;
+    font-size: 14px;
+    position: absolute; /* 메시지를 입력 필드 아래에 위치시키기 위해 추가 */
+    bottom: -20px;
+    left: 0;
+}
+.success-message {
+    color: green;
+    font-size: 14px;
+    position: absolute; /* 성공 메시지를 입력 필드 아래에 위치시키기 위해 추가 */
+    bottom: -20px;
+    left: 0;
 }
