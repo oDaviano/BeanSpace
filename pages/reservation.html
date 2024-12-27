@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Complete</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .container {
+        width: 400px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .header h2 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .content {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .info {
+        margin-bottom: 10px;
+    }
+
+    .info.red {
+        color: red;
+        font-size: 13px;
+    }
+
+    .icon {
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    .icon img {
+        width: 100px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .main-button {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .list-button {
+        background-color: #2196F3;
+        color: white;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h2>예약이 완료되었습니다.</h2>
+    <p>해당 내역은 예약 목록에서도 확인할 수 있습니다.</p>
+  </div>
+
+  <div class="content">
+    <div class="info"><strong>시설명:</strong> ○○주차장</div>
+    <div class="info"><strong>주차 시간:</strong> 20XX년 XX월 XX일 XX시 XX분</div>
+    <div class="info"><strong>출차 시간:</strong> 20XX년 XX월 XX일 XX시 XX분</div>
+    <div class="info"><strong>차량 번호:</strong> 123가3456</div>
+    <div class="info"><strong>전화번호:</strong> 000-0000-0000</div>
+    <div class="info"><strong>결제 금액:</strong> X원</div>
+    <div class="info red">포인트 적립액: 결제금액 × 0.05</div>
+  </div>
+
+  <div class="icon">
+    <img src="https://postfiles.pstatic.net/MjAyNDEyMjNfMTAw/MDAxNzM0OTE0Nzg1Mzc0.WaHvbpIO1goTEMIsTlXsQ2jK_4lUxkMb93waO2BdU94g.y4eJpqmJcNRCnaMbNdb6tzrzZz0-YpxjPIYPtDcfVqAg.PNG/Clipboard_image_-_2024%EB%85%84_12%EC%9B%94_19%EC%9D%BC_%EC%98%A4%EC%A0%84_10_12.png?type=w773" alt="Car Icon">
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="main-button">메인으로</button>
+    <button type="button" class="list-button">예약 목록으로</button>
+  </div>
+</div>
+</body>
+</html>
