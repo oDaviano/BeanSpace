@@ -40,11 +40,11 @@ const publish = (function () {
     setAside: function () {
 			// 모바일 전체메뉴 오픈
 				const $body = $("body");
-				const $aside = $("aside");
+				const $raside = $("aside#rightside");
 				const $buttonMenu = $(".button-menu");
 				$buttonMenu.on("click", function () {
 					$body.toggleClass("ovy-hidden");
-          $aside.toggleClass("active");
+          $raside.toggleClass("active");
 					// $aside.toggleClass("active", $(this).hasClass("open-menu"));
 				});
 			

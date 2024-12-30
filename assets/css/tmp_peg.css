@@ -1,5 +1,7 @@
 @charset "utf-8";
-
+body#mainbody{
+  overflow-y:hidden;
+}
  aside{
   background-color:white;
  }
@@ -153,5 +155,132 @@ min-width: 250px; ;
 #map {
   display:flex;
   width:100%;
-  height: 500px;
+  height: 700px;
+
+
+}
+
+.info ul li{
+  display: flex;
+  padding:5px;
+  justify-content: space-between;
+}
+.popup{
+  width:115%;
+  height:40%;    
+  margin:0 auto;
+  background-color: white;
+  position: absolute; 
+  animation: fade_down 1s;
+  transform: translateY(100%);
+  border-width: 2px;
+  border-style: solid;
+  opacity:0;
+  display:none;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column; 
+  z-index: 10;
+  bottom:0;
+}
+
+@keyframes fade_down {
+	0% { display:flex;
+    opacity: 1; transform: translateY(0); }
+	to { opacity: 0; transform: translateY(100%);
+  display:none; }
+}
+
+ .popup.open{
+  transform: translateY(0);
+opacity:1;
+display:flex;
+
+
+
+ animation: fade_up 1s; }
+@keyframes fade_up {
+	0% { opacity: 0; transform: translateY(100%);  display:none; }
+	to { opacity: 1; transform: translateY(0);  display:flex;}
+}
+.popup #facname{
+  margin:10px;
+}
+
+.popup .info{
+  width:95%;
+}
+.popup ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popup .info_button_area{
+  display:flex;
+  width:100%;
+  justify-content:space-evenly;
+  margin:10px;
+}
+
+#customoverlay{
+ background-color:white;
+ position: absolute; 
+ width: 200px; height: 40px;
+ left: 448px;bottom: 62px;
+ border: black 1px solid; 
+ display: flex  ;
+ justify-content : center;
+ align-items : center;
+ border-radius: 5px;
+}
+
+#customoverlay.selected{
+  border: var(--primary-blue) 2px solid; 
+}
+
+#customoverlay:after{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: white;
+	border-bottom: 0;
+	margin-left: -20px;
+	margin-bottom: -19px;
+}
+#customoverlay:before {
+  content: "";
+  position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+  border-top-color: black;
+	border-bottom: 0;
+	margin-left: -20px;
+	margin-bottom: -20px;
+}
+
+#customoverlay.selected:before {
+  content: "";
+  position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 21.5px solid transparent;
+  border-top-color: var(--primary-blue);
+  border-bottom: 0;
+	margin-left: -21px;
+	margin-bottom: -22px;
+
+}
+
+#button_cancel{
+  border: solid black 1px;
 }

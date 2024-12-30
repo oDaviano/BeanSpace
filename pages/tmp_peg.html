@@ -23,7 +23,7 @@
 
   <!-- <link type="image/png" rel="shortcut icon" href=""> -->
 
-  <!-- <link type="text/css" rel="stylesheet" href="/assets/css/font.css">-->
+  <link type="text/css" rel="stylesheet" href="/assets/css/font.css">
   <link type="text/css" rel="stylesheet" href="/assets/css/common.css"> 
 
   <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.min.css">
@@ -41,9 +41,7 @@
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=co1ous7685"></script>
 
 </head>
-
-
-<body>
+<body id="mainbody">
     <div class="container">
         <header>
 			<!-- <div class="observer-layout"></div> -->
@@ -63,7 +61,7 @@
         </section>
 
 		</header>
-        <aside>
+        <aside id="rightside" >
                     <section class="sidebar">
                         <article class="sidebar_title">
                             <div class="ux-title">
@@ -103,8 +101,6 @@
                         <span class="label">로그인</span></a>												    
                 </div>
             </section> -->
-           
-       
         <section class="area_search">
             <div class="search-component">
                 <form class="ui-form search">                           
@@ -124,12 +120,34 @@
             <section>
                 <article>
                         <div id="map"></div>
-                        <code id="snippet" class="snippet"></code>
-                </article>
+                        <div class="popup">
+                    <div id="facname">주차장명</div>
+                    <div class="info">
+                <ul >
+                    <li>
+                        <div>주소: </div><div  id="address"></div></li>
+                    <li ><div>요금: </div><div id="fee"></div></li>
+                    <li><div>구분: </div><div id="category"></div></li>
+                </ul>
+            </div>
+                <div class="info_button_area">
+                    <button class="ux-button contained primary" id="button_buy">주차권 구매</button>
+                    <button class="ux-button primary" id="button_cancel">돌아가기</button>
+                </div>
+            </div>
+                </article>  
+           
             </section>
-
-
+          
+          
         </main>
+        <!-- <aside id="bottomside">
+      
+            <section class="area_info">
+
+            </section>
+        </aside> -->
+
         <footer>
             <!-- <section>
                 <article>
