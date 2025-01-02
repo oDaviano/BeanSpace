@@ -4,6 +4,11 @@ var popup;
 var data;
 let oldsel
 var datas = [];
+let searchKeyword;
+var oldVal;
+const clientID ="xMNXsGUYhQ4rJ5iYH0os";
+const clientSecret="Nhz6Qp0Uwg";
+
  $(function () {
   if($(".popup").length){
     popup = $(".popup");
@@ -11,12 +16,59 @@ var datas = [];
       popup.removeClass("open")
     });
   }
+
+  $('#search_name').on("propertychange change keyup paste input", function() {//주소 검색
+     searchKeyword = $(this).val();
+    if(searchKeyword== oldVal) {
+        return;
+    }
+    oldVal = searchKeyword;
+  });
+  $('#button_search').click(function(){
+    facsearch();
+/*키워드 검색기능-현재 동작 불가, 차후 확인 후 교체 혹은 제거
+const query = searchKeyword;
+const apiURL = "https://naveropenapi.apigw.ntruss.com/map-place/v1/search";
+
+$.ajax({
+url:apiURL,
+type:"GET",
+headers: {
+  "X-NCP-APIGW-API-KEY-ID": clientID,
+  "X-NCP-APIGW-API-KEY": clientSecret
+},
+data:{
+  query: query
+},
+success: function (response) {
+  // 결과 처리
+  const places = response.places;
+  if (places.length > 0) {
+      const firstPlace = places[0];
+      const name = firstPlace.name;
+      const x = firstPlace.x; // 경도
+      const y = firstPlace.y; // 위도
+      const roadAddress = firstPlace.road_address;
+
+   console.log(name);
+  } else {
+
+  }
+},
+error: function (xhr, status, error) {
+  console.error("API 호출 오류:", error);
+}
+
+})
+*/
+
+  });
  });
 
 $(document).ready(function() {
     var mapOptions = {
       scaleControl: true,
-      logoControl: true,
+      logoControl: false,
       mapDataControl: false,
       zoomControl: true,
       zoomControlOptions: {
@@ -29,15 +81,29 @@ $(document).ready(function() {
       };
     var mapDiv = document.getElementById('map');
   map = new naver.maps.Map(mapDiv,mapOptions); 
-  let markers=new Array();
-  let infowindows = new Array();
- infowindow = new naver.maps.InfoWindow();
+
+  btnHtml = '<img src="/assets/images/location.png" width=40px height=40px>',
+  naver.maps.Event.once(map, 'init', function() {
+    //customControl 객체 이용하기
+    var customControl = new naver.maps.CustomControl(btnHtml, {
+        position: naver.maps.Position.TOP_LEFT
+    });
+
+    customControl.setMap(map);
+
+    naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
+        } else {
+          var center = map.getCenter();
+        }     
+    });
+});
+
  if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
 } else {
   var center = map.getCenter();
- // infowindow.open(map, center);
- 
 }
 
 setOverlay(fetchedData=> {
@@ -135,27 +201,37 @@ var name = popup.find("#facname");
       });
 
   }
-
 });
-
-
 });
 
 
 function onSuccessGeolocation(position) {
-  var location = new naver.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  //  map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
+  var location = new naver.maps.LatLng(position.coords.latitude, position.coords.longitude);//내위치로 이둥
+    map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
    map.setZoom(15); // 지도의 줌 레벨을 변경합니다.
 }
 
-function onErrorGeolocation() {
+function onErrorGeolocation(error) {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+        console.error("사용자가 위치 정보 제공을 거부했습니다.");
+        break;
+    case error.POSITION_UNAVAILABLE:
+        console.error("위치 정보를 사용할 수 없습니다.");
+        break;
+    case error.TIMEOUT:
+        console.error("요청 시간이 초과되었습니다.");
+        break;
+    default:
+        console.error("알 수 없는 오류가 발생했습니다.");
+        break;
+}
+  
   var center = map.getCenter();
 }
 
-
 $(window).on("load", function() {
 });
-
 
  function setOverlay(callback){
 
@@ -169,10 +245,24 @@ callback(data);
 
 }
 
-function facSearch(){
-  let count=0;
-  var keyword;
+function facsearch(){
+  naver.maps.Service.geocode({
+    query: searchKeyword
+}, function(status, response) {
+    if (status !== naver.maps.Service.Status.OK) {
+        return alert('Something wrong!');
+    }
+    var result = response.v2, // 검색 결과의 컨테이너
+        items = result.addresses; // 검색 결과의 배열
+if(items.length==1){
+        var location = new naver.maps.LatLng(items[0]["y"], items[0]["x"]);//해당 주소 좌표로 이동후 확대
+           map.setCenter(location);
+           map.setZoom(15);
+}else{
+  alert("정확한 주소로 검색");
+}
 
+});
 
 }
 
