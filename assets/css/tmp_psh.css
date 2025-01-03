@@ -107,6 +107,9 @@ input:focus {
     border-radius: 5px;
     background-color: #ffffff;
     color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     cursor: pointer;
 }

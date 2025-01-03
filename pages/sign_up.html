@@ -42,18 +42,12 @@
 
 <body>
     <div class="container">
-        <header>
-			<div class="observer-layout"></div>
-			<section class="header-pc1 load"><!-- .load: setCommon 함수로 AJAX 로드 --></section>
-			<!-- <section class="header-pc2 load">.load: setCommon 함수로 AJAX 로드</section> 추가 작업용 보류-->
-			<section class="header-mob load"><!-- .load: setCommon 함수로 AJAX 로드 --></section>
-		</header>
 
         <main class="member_own">
         <!-- 회원가입 영역 -->
         <div class="signup-wrapper">
             <h1 class="signup-title">회원가입</h1>
-            <form action="/register" method="post" class="signup-form">
+            <form action="sign_in.html" method="get" class="signup-form">
 
                 <!-- 이메일 입력과 중복확인 -->
                 <div class="form-group">
@@ -93,14 +87,6 @@
         </main>
 
 
-
-
-        <footer>
-            <section>
-                <article>
-                </article>
-            </section>
-        </footer>
 
         <script>
             const password = document.getElementById('password');
