@@ -26,7 +26,7 @@
   <link type="text/css" rel="stylesheet" href="/assets/css/font.css">
   <link type="text/css" rel="stylesheet" href="/assets/css/common.css">
   <link type="text/css" rel="stylesheet" href="/assets/css/tmp_njw.css">
- 
+  <link type="text/css" rel="stylesheet" href="/assets/css/tmp_peg.css">
   <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.min.css">
   <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.theme.min.css">
   <link type="text/css" rel="stylesheet" href="/lib/swiper-bundle.min.css">
@@ -43,71 +43,68 @@
 
 <body>
     <div class="container">
-
         <header class="header">
             <div class="car-icon">
-                <a href="#" id="carIconLink">
-                    <img src="/assets/images/car-icon.png" alt="Car Icon" />
+                <a href="main.html" id="carIconLink">
+                    <img src="/assets/images/car-icon.png" alt="Car Icon">
                 </a>
             </div>
             <h1 class="header-title">회원 정보</h1>
             <div id="button_menu" class="menu-icon">         
-                <img src = /assets/images/List.png alt="menu icon"> 
+                <img src="/assets/images/List.png" alt="menu icon"> 
+            </div>
         </header>
+
+        <main class="main-content">
+            <div class="info-box">
+                <div class="info-item">이름: OOO</div>
+                <div class="info-item">이메일: 0000000@0000000</div>
+                <div class="info-item">핸드폰 번호: 000-0000-0000</div>
+                <div class="info-item">차량 번호: 00 0000</div>
+                <div class="info-item">적립금: 0point</div>
+            </div>
+        </main>
+
+        <aside id="rightside">
+            <section class="sidebar">
+                <article class="sidebar_title">
+                    <div class="ux-title">
+                        <div class="account_name">
+                            <img src="/assets/images/Account.png" width="70" height="70">
+                            <div>OOO님</div>
+                        </div>
+                        <div class="sideclose">
+                            <button type="button" id="closeMenu" class="ux-button icon-only button-menu button-close" tabindex="0">X</button>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="main">
+                        <div class="menu-list">
+                            <ul>
+                                <li><a href="/pages/tem_njw_information.html" class="ux-link">회원 정보</a></li>
+                                <li><a href="/pages/list_reservation.html" class="ux-link">예약 내역 조회</a></li>
+                                <li><a href="/pages/confirm_password.html" class="ux-link">개인 정보 수정</a></li>
+                                <li><a href="/pages/sign_in.html" class="ux-link">로그아웃</a></li><!-- 로그인 페이지로-->
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </aside>
     </div>
 
-           
-           
-
-                        <main class="main-content">
-                            <div class="info-box">
-                              <div class="info-item">이름: OOO</div>
-                              <div class="info-item">이메일: 0000000@0000000</div>
-                              <div class="info-item">핸드폰 번호: 000-0000-0000</div>
-                              <div class="info-item">차량 번호: 00 0000</div>
-                              <div class="info-item">적립금: 0point</div>
-                              <aside>
-                                <section class="sidebar">
-                                    <article class="sidebar_title">
-                                        <div class="ux-title">
-                                            <div class="account_name">
-                                                <img src="/assets/images/Account.png" width="70" height="70">
-                                                <div>OOO님</div>
-                                            </div>
-                                            <div class="sideclose">
-                                                <button type="button"id="button" class="ux-button icon-only button-menu button-close" tabindex="0">X</button>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <article>
-                                        <div class="main">
-                                            <div class="menu-list">
-                                                <ul>
-                                                    <li><a href="#" class="ux-link">회원 정보</a></li>
-                                                    <li><a href="#" class="ux-link">예약 내역 조회</a></li>
-                                                    <li><a href="#" class="ux-link">개인 정보 수정</a></li>
-                                                    <li><a href="#" class="ux-link">로그아웃</a></li>
-                                                </ul>
-                                            </div>
-                                        </article>
-                                    </section>
-                                </aside>
-                            </div>
-                            </div>
-                        
-                    <!-- JavaScript -->
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            // 메뉴 열기
-                            document.getElementById('button_menu').addEventListener('click', function () {
-                                document.querySelector('aside').classList.add('active');
-                            });
-                
-                            // 메뉴 닫기
-                            document.getElementById('closeMenu').addEventListener('click', function () {
-                                document.querySelector('aside').classList.remove('active');
-                            });
-                        });
-                    </script>
-                </body>
-                </html>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 메뉴 열기
+            document.getElementById('button_menu').addEventListener('click', function () {
+                document.getElementById('rightside').classList.add('active');
+            });
+            document.getElementById('closeMenu').addEventListener('click', function () {
+                document.getElementById('rightside').classList.remove('active');
+            });
+          
+        });
+    </script>
+</body>
+</html>
