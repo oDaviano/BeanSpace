@@ -1,131 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<html lang="ko" class="">
 <head>
+    <meta charset="UTF-8">
+    <title>빈자리</title>
+</head>    
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parking Reservation</title>
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-color: #f9f9f9;
-    }
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-title" content="Default">
+  <meta name="robots" content="no-index, follow">
+  <meta name="title" content="">
+  <meta name="author" content="">
+  <meta name="content" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="빈자리 description">
+  <title>빈자리</title>
 
-    .container {
-        width: 400px;
-        margin: 0 auto;
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-    }
+  <!-- <link type="image/png" rel="shortcut icon" href=""> -->
 
-    .header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-    }
+  <link type="text/css" rel="stylesheet" href="/assets/css/font.css">
+  <link type="text/css" rel="stylesheet" href="/assets/css/common.css"> 
 
-    .header img {
-        width: 100px;
-        margin-bottom: 10px;
-    }
+  <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.min.css">
+  <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.theme.min.css">
+  <link type="text/css" rel="stylesheet" href="/lib/swiper-bundle.min.css">
 
-    .header h2 {
-        margin: 0;
-        font-size: 20px;
-        text-align: left;
-        align-self: flex-start;
-    }
+  <script type="text/javascript" src="/lib/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="/lib/jquery-ui-1.12.1.min.js"></script>
+  <script type="text/javascript" src="/lib/swiper-bundle.min.js"></script>
 
-    label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
+  <script type="text/javascript" src="/js/temp_peg.js"></script>
+  <script type="text/javascript" src="/js/common.js"></script>
 
-    input[type="text"], input[type="datetime-local"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 14px;
-    }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=co1ous7685&submodules=geocoder"></script>
 
-    .info {
-        font-size: 12px;
-        color: #555;
-        margin-bottom: 15px;
-    }
-
-    .info.red {
-        color: red;
-    }
-
-    .buttons {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 14px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .submit-button {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    .cancel-button {
-        background-color: #f44336;
-        color: white;
-    }
-
-    button:hover {
-        opacity: 0.9;
-    }
-  </style>
 </head>
-<body>
-<div class="container">
-  <div class="header">
-    <h2>시설 이름</h2>
-    <img src="https://postfiles.pstatic.net/MjAyNDEyMjNfMTAw/MDAxNzM0OTE0Nzg1Mzc0.WaHvbpIO1goTEMIsTlXsQ2jK_4lUxkMb93waO2BdU94g.y4eJpqmJcNRCnaMbNdb6tzrzZz0-YpxjPIYPtDcfVqAg.PNG/Clipboard_image_-_2024%EB%85%84_12%EC%9B%94_19%EC%9D%BC_%EC%98%A4%EC%A0%84_10_12.png?type=w773" alt="Car Icon">
-  </div>
+<body id="mainbody">
+    <div class="container">
+        <header>
+			<!-- <div class="observer-layout"></div> -->
+			<!-- <section class="header-pc1 load">.load: setCommon 함수로 AJAX 로드</section> -->
+			<!-- <section class="header-mob load">.load: setCommon 함수로 AJAX 로드</section> -->
 
-  <form>
-    <label for="parking-time">주차 시간</label>
-    <input type="datetime-local" id="parking-time" name="parking-time">
+            <section class="title_header" >
+                <article class="main_header">
+            <div id="logo">          
+                <img src = /assets/images/Logo.jpg width="100" height="90"> </div>            
+            <div id="button_menu" class="button-menu open-menu">         
+                <img src = /assets/images/List.png width="70" height="70"> 
+                <!-- <div>로그인</div> -->
+            </div>
+                </article>
 
-    <label for="exit-time">출차 시간</label>
-    <input type="datetime-local" id="exit-time" name="exit-time">
+        </section>
 
-    <label for="car-number">차량 번호</label>
-    <input type="text" id="car-number" name="car-number">
+		</header>
+        <aside id="rightside" >
+                    <section class="sidebar">
+                        <article class="sidebar_title">
+                            <div class="ux-title">
+                                <div class="account_name">
+                                    <img src = /assets/images/Account.png width="70" height="70"> 
+                                    <div>OOO님</div>
+                                </div>
+                            
+                            <div class="sideclose">
+                                <button type="button" class="ux-button icon-only button-menu button-close" tabindex="0">
+                                    X
+                                </button>
+                            </div>
+                        </div>
+                        </article>
+                        <article>
+                    <div class="main">
+                        <div class="menu-list">
+                            <ul>
+                                <!-- <li><button class="ux-link button-mob-sign in">로그인</button></li> -->
+                                <li><a href="#" class="ux-link"></a>회원 정보</li>
+                                <li><a href="#" class="ux-link">예약 내역 조회</a></li>
+                                <li><a href="#" class="ux-link">개인 정보 수정</a></li>
+                                <li><a href="#" class="ux-link">로그아웃</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+    </section>
+    
+        </aside>
 
-    <label for="phone-number">전화번호</label>
-    <input type="text" id="phone-number" name="phone-number">
+        <main id="mainpage">
+            <!-- <section class="account">
+                <div class="logo">												
+                    <a class="ux-button contained primary">
+                        <span class="label">로그인</span></a>												    
+                </div>
+            </section> -->
+        <section class="area_search">
+            <div class="search-component">
+                <form class="ui-form search">                           
+                 <div class="ui-input">
+                  <div class="input outlined">
+                      <input id="search_name" name="search_name" type="text" class="custom-text" placeholder="주소를 검색해보세요">
+                  </div>
+                    </div>  
+                    <div class="ux-button-bar">
+                    <button id="button_search" type="button" class="ux-button contained primary"><span class="label">검색</span></button>
+                    </div>
+                    </form>
 
-    <div class="info">
-      결제 금액: 기본요금 + 출차시간 + 주차시간 × 시간당요금
+                </div>
+        </section>
+
+            <section>
+                <article>
+                        <div id="map"></div>
+                        <div class="popup">
+                    <div id="facname">주차장명</div>
+                    <div class="info">
+                <ul >
+                    <li>
+                        <div>주소: </div><div  id="address"></div></li>
+                    <li ><div>요금: </div><div id="fee"></div></li>
+                    <li><div>구분: </div><div id="category"></div></li>
+                </ul>
+            </div>
+                <div class="info_button_area">
+                    <button class="ux-button contained primary" id="button_buy">주차권 구매</button>
+                    <button class="ux-button primary" id="button_cancel">돌아가기</button>
+                </div>
+            </div>
+                </article>  
+           
+            </section>
+          
+          
+        </main>
+        <footer>
+        </footer>
     </div>
-    <div class="info red">
-      포인트 적립액: 결제금액 × 0.05
-    </div>
-
-    <div class="buttons">
-      <button type="submit" class="submit-button">결제 수단 선택</button>
-      <button type="button" class="cancel-button">취소</button>
-    </div>
-  </form>
-</div>
 </body>
 </html>
