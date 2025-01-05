@@ -42,6 +42,7 @@ const publish = (function () {
 				const $body = $("body");
 				const $raside = $("aside#rightside");
 				const $buttonMenu = $(".button-menu");
+        console.log($buttonMenu);
 				$buttonMenu.on("click", function () {
 					$body.toggleClass("ovy-hidden");
           $raside.toggleClass("active");

@@ -2,9 +2,6 @@
 <html>
 <html lang="ko" class="">
 <head>
-    <meta charset="UTF-8">
-    <title>빈자리</title>
-</head>    
   <meta charset="UTF-8">
   <meta http-equiv="Content-Style-Type" content="text/css">
   <meta http-equiv="Content-Script-Type" content="text/javascript">
@@ -44,17 +41,18 @@
 <body id="mainbody">
     <div class="container">
         <header>
-			<!-- <div class="observer-layout"></div> -->
-			<!-- <section class="header-pc1 load">.load: setCommon 함수로 AJAX 로드</section> -->
-			<!-- <section class="header-mob load">.load: setCommon 함수로 AJAX 로드</section> -->
+                <!-- <div class="observer-layout"></div> -->
+                <!-- <section class="header-pc1 load">.load: setCommon 함수로 AJAX 로드</section> -->
+                <!-- <section class="header-mob load">.load: setCommon 함수로 AJAX 로드</section> -->
 
             <section class="title_header" >
                 <article class="main_header">
+                    <div id="header_bg">
             <div id="logo">          
-                <img src = /assets/images/Logo.jpg width="100" height="90"> </div>            
+                <img src = /assets/images/car-icon.png width="100" height="90"> </div>            
             <div id="button_menu" class="button-menu open-menu">         
                 <img src = /assets/images/List.png width="70" height="70"> 
-                <!-- <div>로그인</div> -->
+           </div>
             </div>
                 </article>
 
@@ -81,10 +79,10 @@
                     <div class="main">
                         <div class="menu-list">
                             <ul>
-                                <!-- <li><button class="ux-link button-mob-sign in">로그인</button></li> -->
-                                <li><a href="#" class="ux-link"></a>회원 정보</li>
-                                <li><a href="#" class="ux-link">예약 내역 조회</a></li>
-                                <li><a href="#" class="ux-link">개인 정보 수정</a></li>
+                                <li style="display:none"><button class="ux-link button-mob-sign in">로그인</button></li>
+                                <li><a href="/pages/user_info.html" class="ux-link">회원 정보</a></li>
+                                <li><a href="/pages/list_reservation.html" class="ux-link">예약 내역 조회</a></li>
+                                <li><a href="/pages/user_info_edit.html" class="ux-link">개인 정보 수정</a></li>
                                 <li><a href="#" class="ux-link">로그아웃</a></li>
                             </ul>
                         </div>
@@ -95,12 +93,6 @@
         </aside>
 
         <main id="mainpage">
-            <!-- <section class="account">
-                <div class="logo">												
-                    <a class="ux-button contained primary">
-                        <span class="label">로그인</span></a>												    
-                </div>
-            </section> -->
         <section class="area_search">
             <div class="search-component">
                 <form class="ui-form search">                           

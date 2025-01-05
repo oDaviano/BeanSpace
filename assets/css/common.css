@@ -788,7 +788,7 @@ header section {
   justify-content: center;
   gap: 24px;
   width: 100%;
-  padding: 16px 0;
+  padding: 16px;
 }
 header section.header-pc1 {
   gap: 24px;

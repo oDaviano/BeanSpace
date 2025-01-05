@@ -2,89 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reservation Complete</title>
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-color: #f9f9f9;
-    }
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-title" content="Default">
+<meta name="robots" content="no-index, follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="">
+<meta name="description" content="빈자리 description">
+<title>예약 완료</title>
 
-    .container {
-        width: 400px;
-        margin: 0 auto;
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-    }
 
-    .header {
-        text-align: center;
-        margin-bottom: 20px;
-    }
+<link type="text/css" rel="stylesheet" href="/assets/css/font.css">
+<link type="text/css" rel="stylesheet" href="/assets/css/confirm_reservation.css">
+<link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.min.css">
+<link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.theme.min.css">
+<link type="text/css" rel="stylesheet" href="/lib/swiper-bundle.min.css">
 
-    .header h2 {
-        margin: 0;
-        font-size: 18px;
-        color: #333;
-    }
+<script type="text/javascript" src="/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/lib/jquery-ui-1.12.1.min.js"></script>
+<script type="text/javascript" src="/lib/swiper-bundle.min.js"></script>
 
-    .content {
-        font-size: 14px;
-        color: #555;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-
-    .info {
-        margin-bottom: 10px;
-    }
-
-    .info.red {
-        color: red;
-        font-size: 13px;
-    }
-
-    .icon {
-        text-align: center;
-        margin: 15px 0;
-    }
-
-    .icon img {
-        width: 100px;
-    }
-
-    .buttons {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 14px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .main-button {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    .list-button {
-        background-color: #2196F3;
-        color: white;
-    }
-
-    button:hover {
-        opacity: 0.9;
-    }
-  </style>
+<!-- <script type="text/javascript" src="/js/temp_peg.js"></script> -->
+<script type="text/javascript" src="/js/common.js"></script>
 </head>
 <body>
 <div class="container">
@@ -104,12 +49,12 @@
   </div>
 
   <div class="icon">
-    <img src="https://postfiles.pstatic.net/MjAyNDEyMjNfMTAw/MDAxNzM0OTE0Nzg1Mzc0.WaHvbpIO1goTEMIsTlXsQ2jK_4lUxkMb93waO2BdU94g.y4eJpqmJcNRCnaMbNdb6tzrzZz0-YpxjPIYPtDcfVqAg.PNG/Clipboard_image_-_2024%EB%85%84_12%EC%9B%94_19%EC%9D%BC_%EC%98%A4%EC%A0%84_10_12.png?type=w773" alt="Car Icon">
+    <img src="/assets/images/car-icon.png?" alt="">
   </div>
 
   <div class="buttons">
-    <button type="button" class="main-button">메인으로</button>
-    <button type="button" class="list-button">예약 목록으로</button>
+    <button type="button" class="main-button">확인</button>
+    <!-- <button type="button" class="list-button">예약 목록으로</button> -->
   </div>
 </div>
 </body>

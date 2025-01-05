@@ -71,8 +71,17 @@ width:100%;
 min-width: 250px; ;
   align-items: center; 
   justify-content: space-between; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+#header_bg{
+  background-color: #007bff;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin: 16px;
+}
 .main_title{
   display: flex;
    max-width: 50%;
