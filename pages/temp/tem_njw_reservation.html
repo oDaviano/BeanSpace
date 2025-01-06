@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<html lang="ko" class="">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>    
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-title" content="Default">
+  <meta name="robots" content="no-index, follow">
+  <meta name="title" content="">
+  <meta name="author" content="">
+  <meta name="content" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="빈자리 description">
+  <title>빈자리</title>
+
+  <!-- <link type="image/png" rel="shortcut icon" href=""> -->
+
+  <link type="text/css" rel="stylesheet" href="/assets/css/font.css">
+  <link type="text/css" rel="stylesheet" href="/assets/css/common.css">
+  <link type="text/css" rel="stylesheet" href="/assets/css/tmp_njw.css">
+  <link type="text/css" rel="stylesheet" href="/assets/css/tmp_peg.css">
+  <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.min.css">
+  <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.theme.min.css">
+  <link type="text/css" rel="stylesheet" href="/lib/swiper-bundle.min.css">
+  
+  <script type="text/javascript" src="/lib/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="/lib/jquery-ui-1.12.1.min.js"></script>
+  <script type="text/javascript" src="/lib/swiper-bundle.min.js"></script>
+ 
+  <script type="text/javascript" src="/js/common.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8ze2pCtEXZEBra8ProWgd2QGH69Ew8A4G6U6B6NC"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="car-icon">
+                <a href="main.html" id="carIconLink">
+                    <img src="/assets/images/car-icon.png" alt="Car Icon">
+                </a>
+            </div>
+            <h1 class="header-title2">예약 내역 조회</h1>
+            <div id="button_menu" class="menu-icon">         
+                <img src="/assets/images/List.png" alt="menu icon"> 
+            </div>
+        </header>
+
+       
+
+            <!-- 검색 입력 필드 추가 -->
+            <input type="text" id="searchInput" placeholder="🔍 시설명 또는 예약 날짜 검색..." class="search-input">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>시설명</th>
+                        <th>예약 날짜</th>
+                        <th>주차 시간</th>
+                        <th>출차 시간</th>
+                    </tr>
+                </thead>
+                <tbody id="reservationTable">
+                    <tr>
+                        <td><a href="/pages/confirm_reservation.html" class="facility-link">서울타워 주차장</a></td>
+                        <td>2024-12-23</td>
+                        <td>14:00</td>
+                        <td>16:00</td>
+                    </tr>
+                    <tr>
+                        <td><a href="/pages/confirm_reservation.html" class="facility-link">코엑스 주차장</a></td>
+                        <td>2024-12-24</td>
+                        <td>12:00</td>
+                        <td>13:30</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <aside id="rightside">
+            <section class="sidebar">
+                <article class="sidebar_title">
+                    <div class="ux-title">
+                        <div class="account_name">
+                            <img src="/assets/images/Account.png" width="70" height="70">
+                            <div>OOO님</div>
+                        </div>
+                        <div class="sideclose">
+                            <button type="button" id="closeMenu" class="ux-button icon-only button-menu button-close" tabindex="0">X</button>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="main">
+                        <div class="menu-list">
+                            <ul>
+                                <li><a href="/pages/tem_njw_information.html" class="ux-link">회원 정보</a></li>
+                                <li><a href="/pages/tem_njw_reservation.html" class="ux-link">예약 내역 조회</a></li>
+                                <li><a href="/pages/confirm_password.html" class="ux-link">개인 정보 수정</a></li>
+                                <li><a href="/pages/sign_in.html" class="ux-link">로그아웃</a></li><!-- 로그인 페이지로-->
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </aside>
+    </div>
+
+    <script>
+        // 검색 기능
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const query = this.value.toLowerCase(); // 입력값을 소문자로 변환
+            const rows = document.querySelectorAll('#reservationTable tr');
+
+            rows.forEach(row => {
+                const facilityName = row.cells[0].textContent.toLowerCase(); // 시설명
+                const reservationDate = row.cells[1].textContent.toLowerCase(); // 예약 날짜
+                const time = row.cells[2].textContent.toLowerCase(); // 주차 시간
+
+                // 검색어가 시설명, 예약 날짜 또는 주차 시간에 포함되면 해당 행을 보여줌
+                if (facilityName.includes(query) || reservationDate.includes(query) || time.includes(query)) {
+                    row.style.display = ''; // 해당 행 보이기
+                } else {
+                    row.style.display = 'none'; // 검색에 맞지 않으면 해당 행 숨기기
+                }
+            });
+        });
+
+        // 사이드바 열고 닫기
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('button_menu').addEventListener('click', function () {
+                document.getElementById('rightside').classList.add('active');
+            });
+            document.getElementById('closeMenu').addEventListener('click', function () {
+                document.getElementById('rightside').classList.remove('active');
+            });
+           
+        });
+    </script>
+
+    <style>
+        /* 사이드바 스타일 */
+        #rightside {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        #rightside.active {
+            transform: translateX(0);
+        }
+    </style>
+</body>
+</html>
