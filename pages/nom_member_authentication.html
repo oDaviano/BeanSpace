@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<html lang="ko" class="">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>    
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-title" content="Default">
+  <meta name="robots" content="no-index, follow">
+  <meta name="title" content="">
+  <meta name="author" content="">
+  <meta name="content" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="빈자리 description">
+  <title>빈자리</title>
+
+  <!-- <link type="image/png" rel="shortcut icon" href=""> -->
+
+  <link type="text/css" rel="stylesheet" href="/assets/css/font.css">
+  <link type="text/css" rel="stylesheet" href="/assets/css/tmp_psh.css">
+  <link type="text/css" rel="stylesheet" href="/assets/css/tmp_njw.css">
+ <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.min.css">
+  <link type="text/css" rel="stylesheet" href="/lib/jquery-ui-1.12.1.theme.min.css">
+  <link type="text/css" rel="stylesheet" href="/lib/swiper-bundle.min.css">
+
+  <script type="text/javascript" src="/lib/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="/lib/jquery-ui-1.12.1.min.js"></script>
+  <script type="text/javascript" src="/lib/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="/js/common.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8ze2pCtEXZEBra8ProWgd2QGH69Ew8A4G6U6B6NC"></script>
+</head>
+<body>
+    <div class="container">
+       
+        <header class="header">
+            <div class="car-icon">
+                <a href="/pages/main.html" id="carIconLink">
+                    <img src="/assets/images/car-icon.png" alt="Car Icon" />
+                </a>
+            </div>
+            <div style="width:50%;"><h1 class="header-title2">예약 조회</h1></div>
+            <!-- <div id="button_menu" class="menu-icon">         
+                <img src = "/assets/images/List.png" alt="menu icon">  -->
+        </header>
+    </div>
+</div>
+
+
+
+
+
+                <div class="container">
+                   
+                    <h2>비회원 예약 확인</h2>
+                    <h3>예약 확인 번호를 입력해주세요</h3>
+                    <!-- 검색 입력 필드 추가 -->
+                    <input type="text" id="searchInput" placeholder="🔍 예약 확인 번호" class="search-input">
+                                   
+
+
+                              
+                </div>
+
+                <div class="container">
+                   
+            
+                    <h3>회원으로 예약하셨나요?</h3>
+                    <h2>로그인</h2>
+            		<div class="psh_own" style="margin-top: 25px;">
+                        <!-- 로그인 폼 시작 -->
+                        <form class="login" id="loginForm" action="tmp_peg.html" method="get">
+                            <!-- 이메일 비밀번호 입력 -->
+                            <input type="email" placeholder="이메일을 입력하세요." class="input">
+                            <input type="password" placeholder="비밀번호를 입력하세요." class="input">
+                            <!-- 로그인 회원가입 버튼-->
+                            <div class="btn-sign">
+                            <button type="submit" class="btn-signIn">로그인</button>
+         
+                            </div>
+    
+          
+    
+                        </form>
+                    </div>
+                                   
+                              
+                </div>
+
+                
+                <aside id="rightside" >
+                    <section class="sidebar">
+                        <article class="sidebar_title">
+                            <div class="ux-title">
+                                <div class="account_name">
+                                    <img src = "/assets/images/Account.png" width="70" height="70"> 
+                                    <div>OOO님</div>
+                                </div>
+                            
+                            <div class="sideclose">
+                                <button type="button" class="ux-button icon-only button-menu button-close" tabindex="0">
+                                    X
+                                </button>
+                            </div>
+                        </div>
+                        </article>
+                        <article>
+                    <div class="main">
+                        <div class="menu-list">
+                            <ul>               
+                                <c:choose>
+                                <c:when test="${isLogOn == true  && member!= null}">                                
+                                     <li><a href="/pages/user_info.html" class="ux-link">회원 정보</a></li>
+                                <li><a href="/pages/list_reservation.html" class="ux-link">예약 내역 조회</a></li>
+                                <li><a href="/pages/user_info_edit.html" class="ux-link">개인 정보 수정</a></li>
+                                             <li><a href="/member/logout.do" class="ux-link">로그아웃</a></li>
+                                </c:when>
+                                <c:otherwise>
+                                     <li><a  href="/pages/loginForm.html"class="ux-link button-mob-sign in">로그인</a></li>
+                                     <li><a href="/pages/list_reservation.html" class="ux-link">예약 내역 조회</a></li>
+                                
+                                </c:otherwise>
+        
+                                </c:choose>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+    </section>
+    
+        </aside>
+    </div>
+
+    <script>
+     // 검색 기능
+     document.getElementById('searchInput').addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#reservationTable tr');
+
+        rows.forEach(row => {
+            const facilityName = row.cells[0].textContent.toLowerCase();
+       //     const reservationDate = row.cells[1].textContent.toLowerCase();
+
+            if (facilityName.includes(query) ){//}|| reservationDate.includes(query)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+
+  
+
+    // 날짜 및 시간 필터링 기능
+    document.getElementById('datetimeFilter').addEventListener('change', function() {
+        const selectedDateTime = this.value; // 입력된 날짜 및 시간
+        const rows = document.querySelectorAll('#reservationTable tr');
+
+        rows.forEach(row => {
+            const reservationDateTime = row.cells[1].textContent; // 예약 날짜-시간
+
+            // 날짜가 일치하거나 필터가 비어 있으면 표시
+            if (reservationDateTime.startsWith(selectedDateTime) || selectedDateTime === '') {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // 메뉴 열기
+        document.getElementById('button_menu').addEventListener('click', function () {
+            document.querySelector('aside').classList.add('active');
+        });
+
+        // 메뉴 닫기
+        document.getElementById('closeMenu').addEventListener('click', function () {
+            document.querySelector('aside').classList.remove('active');
+        });
+    }); 
+    </script>
+</body>
+</html>

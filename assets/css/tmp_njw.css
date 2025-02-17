@@ -21,6 +21,7 @@ header{
     width: 100%; /* 화면 너비를 채우도록 설정 */
     box-sizing: border-box; /* 패딩 포함 계산 */
     color: white;
+
 }
 
 .car-icon img {
@@ -40,8 +41,8 @@ header{
 }
 
 .header-title2 {
-    position: absolute;
-    left: 53%;
+    /*position: absolute;
+    left: 53%;*/
     transform: translateX(-50%);
     font-size: 25px;
     font-weight: bold;
